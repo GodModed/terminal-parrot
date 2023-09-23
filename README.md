@@ -1,4 +1,4 @@
-#terminal-parrot
+# terminal-parrot
 A clone of terminal-parrot made in rust
 
 1. Clone the Repository:
