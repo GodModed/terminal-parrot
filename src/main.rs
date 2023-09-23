@@ -1,3 +1,4 @@
+extern crate term_size;
 mod frames;
 
 fn main() {
