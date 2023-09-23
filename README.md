@@ -1,5 +1,5 @@
 # terminal-parrot
-A clone of terminal-parrot made in rust
+A clone of [terminal-parrot](https://github.com/jmhobbs/terminal-parrot) made in rust
 
 1. Clone the Repository:
    Open your terminal and run the following command to clone the "terminal-parrot" repository from GitHub:
