@@ -1,3 +1,5 @@
+use crossterm::style::Color;
+
 // make a public string array
 pub static FRAMES: [&str; 10] = [
     "                         .cccc;;cc;';c.           \n                      .,:dkdc:;;:c:,:d:.          \n                     .loc'.,cc::c:::,..;:.        \n                   .cl;....;dkdccc::,...c;        \n                  .c:,';:'..ckc',;::;....;c.      \n                .c:'.,dkkoc:ok:;llllc,,c,';:.     \n               .;c,';okkkkkkkk:;lllll,:kd;.;:,.   \n               co..:kkkkkkkkkk:;llllc':kkc..oNc   \n             .cl;.,oxkkkkkkkkkc,:cll;,okkc'.cO;   \n             ;k:..ckkkkkkkkkkkl..,;,.;xkko:',l'   \n            .,...';dkkkkkkkkkkd;.....ckkkl'.cO;   \n         .,,:,.;oo:ckkkkkkkkkkkdoc;;cdkkkc..cd,   \n      .cclo;,ccdkkl;llccdkkkkkkkkkkkkkkkd,.c;     \n     .lol:;;okkkkkxooc::coodkkkkkkkkkkkko'.oc     \n   .c:'..lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd,.oc     \n  .lo;,:cdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd,.c;     \n,dx:..;lllllllllllllllllllllllllllllllllc'...     \ncNO;........................................   ",
@@ -15,4 +17,18 @@ pub static mut CURRENT_FRAME: i32 = 0;
 pub unsafe fn next_frame() -> &'static str {
     CURRENT_FRAME = (CURRENT_FRAME + 1) % FRAMES.len() as i32;
     return FRAMES[CURRENT_FRAME as usize];
+}
+
+
+pub static mut RAINBOW_COLORS: [Color; 6] = [
+    Color::Red,
+    Color::Magenta,
+    Color::Yellow,
+    Color::Green,
+    Color::Cyan,
+    Color::Blue,
+];
+pub unsafe fn next_color() -> Color {
+    RAINBOW_COLORS.rotate_right(1);
+    return RAINBOW_COLORS[0];
 }
